@@ -2,7 +2,9 @@
 image sceneTime0 = "images/time0.png"
 image sceneTime1 = "images/time1.png"
 image sceneTime2 = "images/time2.png"
-image sceneRoom = "images/room.png"
+image sceneRoom1 = "images/room8.png"
+image sceneRoom2 = "images/room12.png"
+image sceneRoom3 = "images/room14.png"
 image sceneEnterCorp= "images/outside.png"
 image sceneRyanRef = "images/ryanref2.png"
 image sceneHall = "images/hall.png"
@@ -207,7 +209,7 @@ label start:
 
     nvl clear
     
-    scene sceneRoom with fade
+    scene sceneRoom1 with fade
     n'''\n'''
     nvl clear
 
@@ -240,7 +242,7 @@ label start:
     scene sceneTime1 with fade
     n'''\n'''
 
-    scene sceneRoom with fade
+    scene sceneRoom2 with fade
 
     play music room
 
@@ -258,7 +260,7 @@ label start:
     stop music
     play music room
 
-    scene sceneRoom with fade
+    scene sceneRoom2 with fade
     show artem at left
 
     mainchar "{cps=30}Здравствуйте, кто это?"
@@ -303,7 +305,6 @@ label start:
     "{cps=10}Тук-тук-тук"
 
     scene sceneHrCab with fade
-    show bob at right
     hrbob "{cps=30}Здравствуйте! Вы знаете - меня зовут Роберт Кошак. Расскажите мне немного о себе."
     show artem at left
     mainchar "{cps=30}Здравствуйте, я закончил университет по специальности 'программная инженерия' с красным дипломом. Хочу работать в большой международной компании."
@@ -315,18 +316,18 @@ label start:
     mainchar "{cps=30}Спасибо."
     hrbob "{cps=30}Ждём вас завтра"
 
-    hide bob
-
     hide artem
     stop music
-    scene sceneRoom with fade
+    scene sceneRoom1 with fade
 
     show artem at left
 
     mainchar "{cps=30}Интересно, что ждёт меня на новой работе!"
 
     hide artem
-
+    window hide
+    scene scenePartTime with fade
+    n'''\n'''
 
     scene sceneOffice with fade
     play music office
@@ -461,14 +462,12 @@ label goodEnding:
     mainchar "{cps=30}Аллилуя!"
 
     scene sceneHrCab with fade
-    show bob at right
     show artem at left
     hrbob "{cps=30}Здравствуйте, Артем! Я получил отчет о проделанной вами работе." 
     hrbob "{cps=30}Штош.... Я могу вас только поздравить с получением рабочего места в нашей компании! "
     hrbob "{cps=30}Работать приступаете в понедельник. Ждем вас как всегда в 9 утра."
     mainchar "{cps=30}Я так рад этому событию. Спасибо вам огромное! До свиданья!"
     hrbob "{cps=30}До свиданья."
-    hide bob
     hide artem
     
     scene sceneRyanRef with fade
@@ -482,7 +481,6 @@ label badEnding:
     hide teamlid with easeinleft
     mainchar "{cps=30}Неловко вышло."
     scene sceneHrCab with fade
-    show bob at right
     show artem at left
     hrbob "{cps=30}Здравствуйте, Артем! Я получил отчет о проделанной вами работе." 
     hrbob "{cps=30}Штош...очень жаль что вы не оправдали наши ожидания, вы свободны. До свиданья."
